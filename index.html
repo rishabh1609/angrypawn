@@ -134,62 +134,6 @@
             </div>
         </div>
     </div>
-    
-      <!-- Carousel
-    ==================================================
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators 
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="img/profile.png" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="img/profile.png" class="img-responsive" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="img/profile.png" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    
-    -->    
-         
-        
-   
 
     <section id="courses" style="display:none">
         <div class="container">
@@ -208,10 +152,10 @@
 	                           
 	                           <div class="panel-body">
                                    <span class="course-img">
-					                   <img ng-src="{{x.imURL}}" class="img-responsive" style="width: 100%"alt="">
+					                   <img ng-src="{{x.CourseImage}}" class="img-responsive" style="width: 100%"alt="">
                                     </span>
                                     <div class="course-title">
-					                   {{x.title}}
+					                   {{x.Title}}
                                     </div>
                                    
                                     <div class="price-details">
@@ -222,18 +166,18 @@
                                                 <th>Our Price</th>
                                             </tr>
                                             <tr>
-                                                <td class="original_price">{{x.oldprice | currency}}</td>
-                                                <td class="discount">{{(x.oldprice-x.price)/x.oldprice*100 | number: 0}}%</td>		
-                                                <td class="our_price">{{x.price | currency}}</td>
+                                                <td class="original_price">{{x.Price | currency}}</td>
+                                                <td class="discount">{{(x.Price-x.NewPrice)/x.Price*100 | number: 0}}%</td>		
+                                                <td class="our_price">{{x.Price | currency}}</td>
                                             </tr>
                                         </table>
                                     </div>
                                 </div>
                                
                                 <div class="panel-footer">
-                                <button class="btn btn-primary" disabled="">{{(x.students)}} students</span></button>
+                                <button class="btn btn-primary" disabled="">{{(x.Number_Students)}} students</span></button>
                                 
-                                <button class="btn btn-success pull-right" onclick="courseurl(this.id)" name="opencourse"  id={{x.courseID}}>Buy Now</button>
+                                <button class="btn btn-success pull-right" onclick="courseurl(this.id)" name="opencourse"  id={{x.CourseID}}>Buy Now</button>
                                 </div>
                            </div>
                         </div>
@@ -488,7 +432,7 @@
         
         function coursecontroller($scope,$http) {
             console.log("calling parse"); 
-               Parse.Cloud.run('exportCourses',{},  {
+               Parse.Cloud.run('exportCourse',{},  {
             success: function(success) {
             var jsonArray = [];
         for(var i = 0; i < success.length; i++) {
@@ -497,7 +441,7 @@
          
         console.log(jsonArray);
         //$http.get("https://www.angrypawn.com/file.html")
-        $http.get("http://127.0.0.1:53956/file.html")
+        $http.get("http://127.0.0.1:54551/file.html")
         .success(function(response) {$scope.names = jsonArray; $('#courses').show();});
             },
             error: function(error) {
