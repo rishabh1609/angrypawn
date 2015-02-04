@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Angry pawn offers the best udemy coupon codes available on Internet. The Unofficial New Year Sale for Udemy Courses">
+    <meta name="description" content="Angry pawn offers the best udemy coupon codes available on Internet. The Unofficial all time Sale for Udemy Courses">
     <meta name="keywords" content="udemy new year sales, Udemy discounts, best udemy deals, new year coupons, new year sale, new year deals,udemy coupon, udemy coupons, udemy coupon code, udemy, udemy new year coupon code">
     <meta name="author" content="AngryPawn">
 
@@ -74,15 +74,15 @@
                 </ul>
 
                 <div class="col-sm-3 col-md-3 pull-right">
-        <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="coursename">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-        </form>
-            </div>
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="coursename">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -115,6 +115,11 @@
                             <input type="url" class="form-control" name="courseUrl" placeholder="Enter your course Url">
                         </div >
                         
+                        <div class="form-group">
+                            <label for="coursePrice" class="sr-only control-label">Course Price</label>
+                            <input type="number" class="form-control" name="coursePrice" placeholder="Enter your course price after discount">
+                        </div >
+                        
                         <div class="submitstatus form-group">
                             <div class="row">
                                 <div class="col-sm-7  col-xs-12">
@@ -135,6 +140,8 @@
         </div>
     </div>
 
+        
+        
     <section id="courses" style="display:none">
         <div class="container">
             <div class="row">
@@ -147,7 +154,7 @@
                 <div class="row">
                     <div class="courses-cards" >
 	                   
-                        <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="x in names | filter: coursename" >
+                        <div class="col-lg-4 col-md-6 col-sm-6" ng-repeat="x in names | filter: coursename" >
                            <div class="panel panel-default" >
 	                           
 	                           <div class="panel-body">
@@ -168,7 +175,7 @@
                                             <tr>
                                                 <td class="original_price">{{x.Price | currency}}</td>
                                                 <td class="discount">{{(x.Price-x.NewPrice)/x.Price*100 | number: 0}}%</td>		
-                                                <td class="our_price">{{x.Price | currency}}</td>
+                                                <td class="our_price">{{x.NewPrice | currency}}</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -186,105 +193,6 @@
             </div> 
         </div>
     </section>
-    <!-- Portfolio Grid Section
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
- -->
-    <!-- About Section 
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
--->
     <!-- subscribe Section -->
     <section id="subscribe">
         <div class="container">
@@ -359,47 +267,6 @@
         </a>
     </div>
     
-    
-    
-    <!-- Portfolio Modals 
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     
@@ -440,8 +307,8 @@
         }
          
         console.log(jsonArray);
-        //$http.get("https://www.angrypawn.com/file.html")
-        $http.get("http://127.0.0.1:54551/file.html")
+        $http.get("https://www.angrypawn.com/file.html")
+        //$http.get("http://127.0.0.1:52834/file.html")
         .success(function(response) {$scope.names = jsonArray; $('#courses').show();});
             },
             error: function(error) {

@@ -43,6 +43,16 @@ $(document).ready(function() {
                         message: 'The input is not a valid url'
                     }
                 }
+            },
+            coursePrice: {
+                validators: {
+                    notEmpty: {
+                        message: 'The course price is required and cannot be empty'
+                    },
+                    uri: {
+                        message: 'The input is not a valid number'
+                    }
+                }
             }
         }
     })
