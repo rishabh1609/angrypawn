@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,18 +11,14 @@
     <meta name="author" content="AngryPawn">
 
     <title>AngryPawn - All the udemy coupon codes are here</title>
-    <!--<link href="css/bootstrap.css" rel="stylesheet">
-     Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+  
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <!--
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css">-->
+   
     <link href="css/freelancer.css" rel="stylesheet">
     <link href="css/bootcards.css" rel="stylesheet">
+    <link href="css/star-rating.min.css" rel="stylesheet">
     <!--validator-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
-
-    <!-- Custom CSS -->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -38,10 +34,10 @@
 
 </head>
 
-<body id="page-top" class="index" ng-app="" ng-controller="coursecontroller">
+<body id="page-top" class="index" ng-app="myApp" ng-controller="coursecontroller">
 
-    
-    
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -58,6 +54,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="angrypawn-top-navbar-collapse-1">
+                
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -78,14 +75,15 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="coursename">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
     </nav>
     "
     <!-- Course Submission Modal -->
@@ -93,39 +91,40 @@
         <div class="modal-dialog modal-vertical-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title  text-center" id="myModalLabel">Submit your Course</h4>
                 </div>
-                
-                
-                <div class="modal-body">  
+
+
+                <div class="modal-body">
                     <form class="registerform" role="form" id="courseform" novalidate>
                         <div class="form-group">
                             <label for="instructorName" class="sr-only control-label">Name</label>
-                            <input type="text" class="form-control" name="instructorName" placeholder="Enter your name" >
+                            <input type="text" class="form-control" name="instructorName" placeholder="Enter your name">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="instructorEmail" class="sr-only control-label">E-mail</label>
                             <input type="email" class="form-control" name="instructorEmail" placeholder="Enter your email">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="courseUrl" class="sr-only control-label">Course Url</label>
                             <input type="url" class="form-control" name="courseUrl" placeholder="Enter your course Url">
-                        </div >
-                        
+                        </div>
+
                         <div class="form-group">
                             <label for="coursePrice" class="sr-only control-label">Course Price</label>
                             <input type="number" class="form-control" name="coursePrice" placeholder="Enter your course price after discount">
-                        </div >
-                        
+                        </div>
+
                         <div class="submitstatus form-group">
                             <div class="row">
                                 <div class="col-sm-7  col-xs-12">
-                                    <p id="status"  class="form-control-static"></p>
+                                    <p id="status" class="form-control-static"></p>
                                 </div>
-                                
+
                                 <div class="col-sm-5 col-xs-12">
                                     <div align="right">
                                         <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
@@ -135,14 +134,12 @@
                             </div>
                         </div>
                     </form>
-                </div>   
+                </div>
             </div>
         </div>
     </div>
 
-        
-        
-    <section id="courses" style="display:none">
+    <section id="courses">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -150,84 +147,106 @@
                     <hr class="star-primary">
                 </div>
             </div>
-            <div class="couses-container" >
-                <div class="row">
-                    <div class="courses-cards" >
-	                   
-                        <div class="col-lg-4 col-md-6 col-sm-6" ng-repeat="x in names | filter: coursename" >
-                           <div class="panel panel-default" >
-	                           
-	                           <div class="panel-body">
-                                   <span class="course-img">
-					                   <img ng-src="{{x.CourseImage}}" class="img-responsive" style="width: 100%"alt="">
-                                    </span>
-                                    <div class="course-title">
-					                   {{x.Title}}
+            <div id="loader">Loading......</div>
+
+            <div class="couses-container" id="courselist">
+                <div infinite-scroll='fetchnext()' infinite-scroll-disabled='end' infinite-scroll-distance='2' <div class="row">
+
+                    <div class="courses-cards">
+                        <div class="col-lg-4 col-md-6 col-sm-6" ng-repeat="x in names" on-finish-render="ngRepeatFinished">
+                            <div class="panel panel-default">
+
+                                <div class="panel-body">
+                                    <div class="ribbon-wrapper-green">
+                                        <div class="ribbon-green">{{(x.Price-x.NewPrice)/x.Price*100 | number: 0}}% Off</div>
                                     </div>
-                                   
+                                    <div class="course-img">
+                                        <img ng-src="{{x.CourseImage}}" class="img-responsive" style="width: 100%" alt="">
+                                    </div>
+                                    <div class="course-title">
+                                        {{x.Title}}
+                                    </div>
+
                                     <div class="price-details">
-                                        <table>
+                                        <table style="width:100%; table-layout:fixed">
                                             <tr>
-                                                <th>Udemy Price</th>
-                                                <th>Discount</th>		
+                                                <th>Students</th>
+                                                <tH>{{x.Number_Reviews}} Reviews</th>
                                                 <th>Our Price</th>
                                             </tr>
                                             <tr>
-                                                <td class="original_price">{{x.Price | currency}}</td>
-                                                <td class="discount">{{(x.Price-x.NewPrice)/x.Price*100 | number: 0}}%</td>		
-                                                <td class="our_price">{{x.NewPrice | currency}}</td>
-                                            </tr>
+                                                <td class="Student" style="color: #7f8c8d;"><i class="fa fa-user"></i> {{x.Number_Students}}</td>
+                                                <td class="discount">
+                                                    <input id={{x.CourseID}}  >
+                                                   <!--
+                                                    <div my-rating course-i-d={{x.CourseID}}></div>
+                                                    <input my-rating id ={{x.CourseID}} class="rating" min=1 max=5 step=0.1 data-size="xs" data-show-clear="false" data-show-caption="false" ng-value={{x.Rating}} data-readonly="true"> -->   
+                                                </td>
+
+                                                <td class="our_price" >{{x.NewPrice | currency}}</td>
+                                                      </tr>
                                         </table>
                                     </div>
                                 </div>
-                               
-                                <div class="panel-footer">
-                                <button class="btn btn-primary" disabled="">{{(x.Number_Students)}} students</span></button>
-                                
-                                <button class="btn btn-success pull-right" onclick="courseurl(this.id)" name="opencourse"  id={{x.CourseID}}>Buy Now</button>
-                                </div>
-                           </div>
-                        </div>
-                    </div>  
-                </div>    
-            </div> 
-        </div>
-    </section>
-    <!-- subscribe Section -->
-    <section id="subscribe">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Subscribe Us</h2>
-                   <small> <hr class="star-primary"> </small>
-                </div>
-            </div>
-            <div class="row">
-                <br>
-                <div class="col-lg-6 col-md-6 col-sm-12" >
-                    <p class="lead"><strong>Enter your email address and click subcsribe to get the most exciting offers on online courses from us.</strong> </p>
-                    <small><em>*Don't worry, we will never spam you.</em></small>   
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12" align="center" >
-                    <br>
-                     <form class="form-inline" role="form" id="subscribeform" novalidate>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="subscribeEmail" placeholder="Enter your email">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" id="Subscribebutton" class="btn btn-primary" disabled>Subscribe</button>
-                        </div>
-                        <div id="messages" ></div>
-                    </form>  
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">   
+                                <div class="panel-footer">
+                                    <table style="width:100%;">
+                                        <tr style="text-align:center">
+                                            <td align="left">
+                                                <img ng-src="{{x.AuthorImage}}" class="img-responsive author-image" alt=""> {{x.Author}}
+
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <button class="btn btn-success" onclick="courseurl(this.value)" name="opencourse" value={{x.CourseID}}>Buy Now</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+
+        <!-- subscribe Section -->
+        <section id="subscribe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Subscribe Us</h2>
+                        <small> <hr class="star-primary"> </small>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <p class="lead"><strong>Enter your email address and click subcsribe to get the most exciting offers on online courses from us.</strong> </p>
+                        <small><em>*Don't worry, we will never spam you.</em></small>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12" align="center">
+                        <br>
+                        <form class="form-inline" role="form" id="subscribeform" novalidate>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="subscribeEmail" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="Subscribebutton" class="btn btn-primary" disabled>Subscribe</button>
+                            </div>
+                            <div id="messages"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="text-center">
+            <div class="footer-above">
+                <div class="container">
                     <div class="footer-col col-md-4 col-md-offset-4">
                         <h3>Around the Web</h3>
                         <ul class="list-inline">
@@ -247,13 +266,14 @@
                             -->
                         </ul>
                     </div>
+                </div>
             </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; Angry Pawn 2014
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Copyright &copy; Angry Pawn 2014
+                        </div>
                     </div>
                 </div>
             </div>
@@ -266,15 +286,15 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    
+
     <!-- Angular Js --->
-   
+
     <!-- Bootstrap Core JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-   
+
     <!-- Plugin JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="js/classie.js"></script>
@@ -286,41 +306,110 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
-    
+    <script src="js/star-rating.min.js"></script>
+    <script type="text/javascript" src="//www.parsecdn.com/js/parse-1.3.2.min.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+
+
+    <script type="text/javascript" src="./js/ng-infinite-scroll.min.js"></script>
     <!--Parse Laod script--->
-    <script src="js/parseLoad.js"></script>
-    
+
+
+
     <!--course submission script--->
     <script src="js/submitbutton.js"></script>
-    
+
+
     <!--angularJs
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>-->
-    <script >
-        
-        function coursecontroller($scope,$http) {
-            console.log("calling parse"); 
-               Parse.Cloud.run('exportCourse',{},  {
-            success: function(success) {
-            var jsonArray = [];
-        for(var i = 0; i < success.length; i++) {
-           jsonArray.push(success[i].toJSON());
-        }
-         
-        console.log(jsonArray);
-        $http.get("https://www.angrypawn.com/file.html")
-        //$http.get("http://127.0.0.1:52834/file.html")
-        .success(function(response) {$scope.names = jsonArray; $('#courses').show();});
-            },
-            error: function(error) {
-            console.log("err")
-            
-            }
+    <script>
+        Parse.initialize("qc3ZW7dP2SN3eOzO6fmruWeu4t8IFMCeixHPT63I", "7CqN2NfFitXg6TQWwTkphWZUJrxvlXfiwq6VNrGX");
+        var myApp = angular.module('myApp', ['infinite-scroll']);
+        myApp.controller("coursecontroller", function ($scope, $http) {
+            console.log("calling parse");
+            $scope.number = 1;
+            $scope.end = true;
+            $scope.names = [];
+            $scope.start = 0;
+            $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+                for(var i=$scope.start; i< $scope.names.length;i++){
+                   $("#"+$scope.names[i].CourseID).rating("refresh", {disabled: true, showCaption: false, showClear:false,size:"xs"});  
+                   $("#"+$scope.names[i].CourseID).rating("update",$scope.names[i].Rating); 
+                }
+                $scope.start = $scope.names.length;
             });
-}
-    </script>
-    
-   
+            $scope.fetchnext = function () {
 
+                if (!$scope.end) {
+                    $scope.end = true;
+                    console.log($scope.number);
+                    Parse.Cloud.run('exportCourse1', {
+                        skip: $scope.number * 20
+                    }, {
+                        success: function (success) {
+
+                            $scope.number = $scope.number + 1;
+                            for (var i = 0; i < success.length; i++) {
+                                $scope.names.push(success[i].toJSON());
+                            }
+
+                            if (success.length == 0)
+                                $scope.end = true;
+                            else
+                                $scope.end = false;
+                            //$http.get("https://www.angrypawn.com/file.html")
+                            $http.get("http://127.0.0.1:54862/file.html")
+                                .success(function (response) {});
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            };
+
+            Parse.Cloud.run('exportCourse1', {
+                skip: 0
+            }, {
+                success: function (success) {
+
+                    //$scope.number = $scope.number + 1;
+                    for (var i = 0; i < success.length; i++) {
+                        $scope.names.push(success[i].toJSON());
+                    }
+                    if (!$('#loader').is(':hidden')) {
+                        $('#loader').hide();
+                    }
+
+                    if (success.length == 0)
+                        $scope.end = true;
+                    else
+                        $scope.end = false;
+                    //$http.get("https://www.angrypawn.com/file.html")
+                    $http.get("http://127.0.0.1:54862/file.html")
+                        .success(function (response) {});
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+        myApp.directive('onFinishRender', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    scope.$emit('ngRepeatFinished');
+                });
+            }
+        }
+    }
+});
+    
+    </script>
+   
 
 </body>
 
