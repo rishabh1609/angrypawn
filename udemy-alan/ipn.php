@@ -35,7 +35,7 @@
 
         define("DEBUG", 0);
         // Set to 0 once you're ready to go live
-        define("USE_SANDBOX", 1);
+        define("USE_SANDBOX", 0);
         define("LOG_FILE", "./ipn.log");
         // Read POST data
         // reading posted data directly from $_POST causes serialization
