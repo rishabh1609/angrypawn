@@ -488,7 +488,6 @@ footer .footer-below {
 /**  Subcribe customization*******/
 
 #subscribe {
-    background-color: #18bc9c;
     color: #000;
 }
 
@@ -597,4 +596,12 @@ th{
 
 .Student {
     color: #18bc9c;
+}
+#subscribea {
+ background-color: #16a085;   
+}
+
+#saleimg {
+    width:100%;
+    
 }

@@ -8,9 +8,7 @@ function courseurl(courseid) {
     if(getCookie("email")==""){
         opens=1;
         var $anchor = $(this);
-        $('html, body').animate({
-        scrollTop: $('#subscribe').offset().top + "px"
-   }, 1500);
+        $('#subscribe').modal('show');
         alert("Please subscribe with us to get coupon.")
         
         return;
