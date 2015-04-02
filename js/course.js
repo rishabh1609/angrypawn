@@ -1,5 +1,3 @@
-
-console.log("submit intialized");
 var course; 
 var opens =0;
 function courseurl(courseid) {
@@ -34,10 +32,6 @@ function courseurl(courseid) {
     });
 return;
 }
-
-
-console.log("submit intialized");
-
 
 $('#CourseSubmit').on('click', function(event) {
     event.preventDefault();
