@@ -8,35 +8,36 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
-var cbpAnimatedHeader = (function() {
+var cbpAnimatedHeader = (function () {
 
 	var docElem = document.documentElement,
-		header = document.querySelector( '.navbar-fixed-top' ),
+		header = document.querySelector('.navbar-fixed-top'),
 		didScroll = false,
 		changeHeaderOn = 300;
 
-	function init() {
-		window.addEventListener( 'scroll', function( event ) {
-			if( !didScroll ) {
-				didScroll = true;
-				setTimeout( scrollPage, 250 );
-			}
-		}, false );
+    function scrollY() {
+		return window.pageYOffset || docElem.scrollTop;
 	}
-
-	function scrollPage() {
+    
+    function scrollPage() {
 		var sy = scrollY();
-		if ( sy >= changeHeaderOn ) {
-			classie.add( header, 'navbar-shrink' );
+		if (sy >= changeHeaderOn) {
+			classie.add(header, 'navbar-shrink');
 		}
 		else {
-			classie.remove( header, 'navbar-shrink' );
+			classie.remove(header, 'navbar-shrink');
 		}
 		didScroll = false;
 	}
 
-	function scrollY() {
-		return window.pageYOffset || docElem.scrollTop;
+
+	function init() {
+		window.addEventListener('scroll', function (event) {
+			if (!didScroll) {
+				didScroll = true;
+				setTimeout(scrollPage, 250);
+			}
+		}, false);
 	}
 
 	init();
