@@ -160,7 +160,7 @@
                                         <div class="ribbon-green">{{(x.Price-x.NewPrice)/x.Price*100 | number: 0}}% Off</div>
                                     </div>
                                     <div class="course-img">
-                                        <img ng-src="{{x.CourseImage}}" class="img-responsive" style="width: 100%" alt="">
+                                     <img ng-src="{{x.CourseImage}}" class="img-responsive hover-class" style="width: 100%" alt="" ng-click="openmodal(x)">
                                     </div>
                                     <div class="course-title">
                                         {{x.Title}}
@@ -231,6 +231,47 @@
         </div>
     </div>
 
+   <div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="modal-body">
+                            <h2><span style="color:#2c3e50">{{coursemodal.Title}}</span></h2>
+                            <h5><span style="color:#7f8c8d">By:- {{coursemodal.Author}}</span></h5>
+                            <hr class="star-primary">
+                          
+                            <img ng-src="{{coursemodal.CourseImage}}" class="img-responsive portfolio-link img-centered" alt="">
+                            <ul class="list-inline item-details">
+                                <li>Category:
+                                    <strong><span class="green-color">{{coursemodal.Category}}</span>
+                                    </strong>
+                                </li>
+                                <li>Students:
+                                    <strong><span class="green-color">{{coursemodal.Number_Students}}</span>
+                                    </strong>
+                                </li>
+                                <li>Rating:
+                                    <strong><span class="green-color">{{coursemodal.Rating | number: 1}}/5.0</span>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <h3><span style="color:#7f8c8d">{{coursemodal.Headline}}</span></h3>
+                            <div id="Description"></div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <footer>
         <div class="text-center">
             <div class="footer-above">
@@ -274,14 +315,14 @@
         </a>
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" async></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" async></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js" async></script>
-    <script src="js/classie.js" async></script>
-    <script src="js/cbpAnimatedHeader.js" async></script>
-    <script src="js/freelancer.js" async></script>
-    <script src="js/star-rating.min.js" async></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" ></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" ></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script src="js/classie.js" ></script>
+    <script src="js/cbpAnimatedHeader.js" ></script>
+    <script src="js/freelancer.js"></script>
+    <script src="js/star-rating.min.js" ></script>
     <script type="text/javascript" src="//www.parsecdn.com/js/parse-1.3.2.min.js" ></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
     <script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>

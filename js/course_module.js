@@ -4,8 +4,24 @@ myApp.controller("coursecontroller", function ($scope, $http) {
     var i = 0;
     $scope.number = 1;
     $scope.end = true;
+    $scope.coursemodal={}
     $scope.names = [];
     $scope.start = 0;
+    $scope.openmodal = function(course){
+        $scope.coursemodal=course;
+        Parse.Cloud.run('getCourseInformation',{
+                courseid: course.CourseID
+            },{
+                success: function(success){
+                     document.getElementById("Description").innerHTML=success[0].toJSON().Description;
+                    $('#portfolioModal').modal();
+                },
+                error :  function(error){
+                    $('#portfolioModal').modal();
+                }
+            });
+        
+    }
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         for (i = 0; i < $scope.names.length; i = i + 1) {
             $("#" + $scope.names[i].CourseID).rating("refresh", {

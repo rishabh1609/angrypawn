@@ -536,18 +536,6 @@ th{
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 #infoi {
     z-index: 10;
 }
@@ -604,4 +592,15 @@ th{
 #saleimg {
     width:100%;
     
+}
+
+
+
+.hover-class {
+    cursor: pointer; 
+    cursor: hand;
+}
+
+.green-color {
+    color: #18bc9c;
 }
