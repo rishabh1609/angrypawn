@@ -417,6 +417,10 @@ footer .footer-below {
     margin: 30px 0;
 }
 
+#submitCourse .modal-content .item-details {
+   text-align: left;
+}
+
 .portfolio-modal .close-modal {
     position: absolute;
     top: 25px;
@@ -512,8 +516,6 @@ footer .footer-below {
     
 }
 
-
-
 #courses .panel-body table {
     
     width: 100%;
@@ -539,7 +541,6 @@ th{
 #infoi {
     z-index: 10;
 }
-
 
 .ribbon-wrapper-green {
   width: 85px;
@@ -568,8 +569,6 @@ th{
   box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
 }
 
-
-
 .author-image {
     width: 10%;
     max-height: 66px;
@@ -579,8 +578,6 @@ th{
 .panel-footer {
     padding: 10px 10%;
 }
-
-
 
 .Student {
     color: #18bc9c;
@@ -594,8 +591,6 @@ th{
     
 }
 
-
-
 .hover-class {
     cursor: pointer; 
     cursor: hand;
@@ -603,4 +598,9 @@ th{
 
 .green-color {
     color: #18bc9c;
+}
+
+#submitCourse .modal-content{
+    background-image: url('../img/texture.jpg');
+    background-repeat: repeat;
 }
