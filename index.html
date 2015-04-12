@@ -152,7 +152,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1">
-                        <div class="modal-body">
+                        <div class="modal-body" >
+                           <div id="wholeform">
                             <h2><span style="color:#2c3e50">Submit Your Course</span></h2>
                             <hr class="star-primary">
                             <form class="registerform" role="form" id="courseform" novalidate>
@@ -186,13 +187,35 @@
                                     </div>
                                 </div>  
                             </form>
-                            <div class="item-details">
+                             <div class="item-details">
                             <ul >
-                                <li>The course will be listed <b>immediately</b>.</li>
-                                <li>The course will be searchable and ranked within <b>24 hours of course submission</b>.</li>
+                               <li>We <b>donot use affilate links</b>. So all the money you make is yours. :-)</li>
+                                <li>Please generate 500 coupons with no expiry date.</li>
+                                <li>The course will be listed in <b>24 hours</b>.</li>
                                 <li>To update coupon for already submitted course, just submit  it again.</li>
+                                <li>Your course details are updated every 24 hours.</li>             
                             </ul>
                             </div>
+                            </div>
+                            <div id="showsubmit" >
+                                <div id="spinning"></div>
+                                <h4>Please Wait while we submit your course.</h4>
+                            </div>
+                            <div id="successfulsubmit">
+                                <h3>Your course was submiited successfully :-)</h3>
+                                <p>While we work on your course, Keep calm and join our facebook group</p>
+                                <p><a href="https://www.facebook.com/groups/AngryPawn/" target="_blank" class="btn-social-black btn-outline-black"><i class="fa fa-fw fa-facebook"></i></a></p>
+                            </div>
+                            <div id="failsubmit">
+                                <h3>OOPS! something went wrong :-(</h3>
+                                <p>Check all the details and try to submit again.</p>
+                                <button class="btn btn-primary" onclick="showagain()">Try Again</button>
+                                <div id="bottom">
+                                    <p>For more information, join our facebook group</p>
+                                    <p><a href="https://www.facebook.com/groups/AngryPawn/" target="_blank" class="btn-social-black btn-outline-black"><i class="fa fa-fw fa-facebook"></i></a></p>
+                                </div>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -220,10 +243,10 @@
                                     <div class="ribbon-wrapper-green">
                                         <div class="ribbon-green">{{(x.Price-x.NewPrice)/x.Price*100 | number: 0}}% Off</div>
                                     </div>
-                                    <div class="course-img hover-class" ng-click="openmodal(x)">
+                                    <div class="course-img " ng-click="openmodal(x)">
                                  
-                                        <img ng-src="{{x.CourseImage}}" class="img-responsive hover-class" style="width: 100%" alt="" >
-                            
+                                        <img ng-src="{{x.CourseImage}}"  class="img-responsive hover-class" style="width: 100%" alt="" >
+                                        
                                     </div>
                                     <div class="course-title">
                                         {{x.Title}}
@@ -343,7 +366,7 @@
                         <h3>Around the Web</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="https://www.facebook.com/pages/Angry-Pawn/753039818104962" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/groups/AngryPawn/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                             </li>
                             <!--
                             <li>
@@ -384,6 +407,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
     <script src="js/classie.js" ></script>
     <script src="js/cbpAnimatedHeader.js" ></script>
+    <script src="js/spin-min.js"></script>
     <script src="js/freelancer.js"></script>
     <script src="js/star-rating.min.js" ></script>
     <script type="text/javascript" src="//www.parsecdn.com/js/parse-1.3.2.min.js" ></script>

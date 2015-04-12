@@ -34,6 +34,20 @@ function courseurl(courseid) {
 return;
 }
 
+function showagain(){
+    $('#wholeform').show();
+    $('#showsubmit').hide();
+    $('#successfulsubmit').hide();
+    $('#failsubmit').hide();
+}
+
+$('#submitCourse').on('show.bs.modal', function (e) {
+    $('#wholeform').show();
+    $('#showsubmit').hide();
+    $('#successfulsubmit').hide();
+    $('#failsubmit').hide();
+})
+
 $('#CourseSubmit').on('click', function(event) {
     event.preventDefault();
     console.log("submission started");
@@ -65,7 +79,8 @@ $('#CourseSubmit').on('click', function(event) {
     }
     
     couponCode= curl.substr(couponCode+11);
-    
+    $('#wholeform').hide();
+    $('#showsubmit').show();
     $('#status').css('color', 'black');
     $('#status').text("Please wait...submitting your course.");
 
@@ -75,11 +90,14 @@ $('#CourseSubmit').on('click', function(event) {
             console.log("success")
             $('#status').text("Your course have been submitted successfully");
             $('#status').css('color', '#5cb85c');
+            $('#successfulsubmit').show();
+                $('#showsubmit').hide();
             },
             error: function(error) {
-            console.log("err")
-            $('#status').text("Something went wrong. Try again later.");
+            console.log("err");
              $('#status').css('color', '#d9534f');
+                $('#failsubmit').show();
+                $('#showsubmit').hide();
             }
             });
     
@@ -96,18 +114,19 @@ $('#Subscribebutton').on('click', function(event) {
     
     Parse.Cloud.run('addSubscriber', {  email: iemail}, {
         success: function(success) {
+            $('#subscribe').modal('hide');
             if(success==0)
             alert("Submitted Successfully.");
             else
             alert("You are already registered :-)")
             setCookie("email",iemail,7);
-            if(opens==1)
-                courseurl(course);
+            //if(opens==1)
+              //  courseurl(course);
         },
         error: function(error) {
             console.log("err")
-            if(opens==1)
-                courseurl(course);
+           // if(opens==1)
+                //courseurl(course);
             alert("Something went wrong. Try again later.");
         }
     });
@@ -294,3 +313,23 @@ $(document).ready(function() {
 
 });
 
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 20, // The length of each line
+  width: 8, // The line thickness
+  radius: 30, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#000', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: '50%', // Top position relative to parent
+  left: '50%' // Left position relative to parent
+};
+var target = document.getElementById('spinning');
+var spinner = new Spinner(opts).spin(target);

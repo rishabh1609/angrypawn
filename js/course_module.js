@@ -31,6 +31,7 @@ myApp.controller("coursecontroller", function ($scope, $http) {
                 size: "xs"
             });
             $("#" + $scope.names[i].CourseID).rating("update", $scope.names[i].Rating);
+            
         }
         $scope.start = $scope.names.length;
     });
@@ -134,3 +135,4 @@ myApp.directive('onFinishRender', function ($timeout) {
         }
     }
 }); 
+
